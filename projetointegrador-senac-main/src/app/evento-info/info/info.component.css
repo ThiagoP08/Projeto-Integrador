@@ -1,0 +1,148 @@
+.container {
+    margin: 1.5rem;
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 33px;
+    margin-bottom: 1rem;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.primary {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #AAAAAA;
+    /* width: 776px; */
+    /* height: 164px; */
+    gap: 250px;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    border-radius: 10px;
+    line-height: 40px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+.primary-left-container {
+    /* background-color: aqua; */
+    text-align: center;
+}
+
+.right-container {
+    /* background-color: red; */
+    text-align: center;
+}
+
+.primary h2 {
+    font-size: 24px;
+}
+
+.primary h3 {
+    font-size: 40px;
+}
+
+.primary h4 {
+    font-size: 32px;
+}
+
+.secondary {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #AAAAAA;
+    /* width: 776px; */
+    /* height: 164px; */
+    gap: 250px;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    /* line-height: 30px; */
+    /* background-color: aqua; */
+}
+
+.secondary h2 {
+    font-size: 32px;
+    /* margin-bottom: 2rem; */
+}
+
+.secondary-left-container {
+    /* background-color: aqua; */
+    min-height: 150px;
+    box-sizing: border-box;
+}
+
+.secondary-right-container {
+    min-height: 150px;
+    box-sizing: border-box;
+    /* background-color: red; */
+}
+
+.secondary p {
+    font-size: 20px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.iframe-container {
+    margin-top: 2rem;
+}
+
+iframe {
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .primary {
+        gap: 50px;
+        text-align: center;
+        width: 300px;
+        /* background-color: aqua; */
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .primary h2 {
+        font-size: 18px;
+    }
+    
+    .primary h3 {
+        font-size: 15px;
+    }
+    
+    .primary h4 {
+        font-size: 25px;
+    }
+
+    .secondary {
+        /* align-items: center; */
+        min-height: 300px;
+        gap: 50px;
+    }
+
+    .secondary h2 {
+        font-size: 25px;
+    }
+
+    .secondary p {
+        font-size: 15px;
+    }
+
+    iframe {
+        width: 350px;
+        height: 350px;
+    }
+
+}

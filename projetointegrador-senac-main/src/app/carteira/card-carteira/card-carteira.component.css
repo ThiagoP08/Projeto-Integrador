@@ -1,0 +1,98 @@
+.container {
+    /* background-color: aqua; */
+    width: 20vw;
+    box-sizing: border-box;
+}
+
+.img-banner {
+    /* display: block; */
+    /* margin: auto; */
+    width: 20vw;
+    height: 20vw;
+    border-radius: 34px;
+}
+
+.img-icon {
+    width: 7vw;
+    width: 7vw;
+}
+
+.span-container {
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.information-container {
+    
+    display: flex;
+    gap: 20px;
+    width: 20vw;
+    align-items: center;
+}
+
+h2 {
+    font-size: 2.5vw;
+}
+
+span {
+    text-align: center;
+}
+
+span, h3 {
+    font-size: 2vw;
+}
+
+h3 {
+    font-size: 1.3vw;
+}
+
+h4 {
+    font-size: 1.2vw;
+}
+
+@media screen and (max-width: 400px) {
+
+    .container {
+        width: 50vw;
+        /* background-color: aqua; */
+    }
+
+    .information-container {
+        width: 50vw;
+        gap: 10px;
+        /* background-color: red; */
+    }
+
+   .img-banner {
+    width: 50vw;
+    height: 50vw;
+   }
+
+   .img-icon {
+    width: 17vw;
+    height: 17vw;
+   }
+
+    h2 {
+        font-size: 5vw;
+    }
+
+    span {
+        text-align: center;
+    }
+
+    span, h3 {
+        font-size: 4vw;
+    }
+
+    h3 {
+        font-size: 3.5vw;
+    }
+
+    h4 {
+        font-size: 3vw;
+    }
+
+
+}

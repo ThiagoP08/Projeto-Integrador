@@ -1,0 +1,28 @@
+<header>
+  
+  <nav>
+    <div class="container">
+      <div class="left-container">
+        
+        <div> 
+          <a routerLink="" class="item-header logo no-border" [class.black-text]="isBlackText" [class.white-text]="!isBlackText"> EventRoller </a>
+        </div>
+
+        <div class="search-bar " [class.black-text]="isBlackText" [class.white-text]="!isBlackText">
+          <input class="no-border" type="search" placeholder="Digite o nome do evento"  [class.black-text]="isBlackText" [class.white-text]="!isBlackText"/>
+          <button> <i class="fa fa-search no-border" [class.black-text]="isBlackText" [class.white-text]="!isBlackText"></i> </button>
+        </div>
+      </div>
+
+      <div class="right-container">
+        <a [class.black-text]="isBlackText" [class.white-text]="!isBlackText" class="item-header no-border" routerLink="/anunciar-evento"> Anunciar evento </a>
+        <a [class.black-text]="isBlackText" [class.white-text]="!isBlackText" class="item-header no-border" href=""> Login </a>
+        <a [class.black-text]="isBlackText" [class.white-text]="!isBlackText" class="item-header cadastrar" href=""> Cadastrar </a>
+      </div>
+      <div class="sanduiche-container">
+        <i class="fa-solid fa-bars no-border" [class.black-text]="isBlackText" [class.white-text]="!isBlackText"></i>
+      </div>
+    </div>
+  </nav>
+
+</header>

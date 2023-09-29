@@ -1,0 +1,30 @@
+.container {
+    position: relative;
+    background-image: url(../../../assets/matue.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Exibe a imagem no tamanho original */
+    z-index: 1; /* Certifique-se de que a .container esteja na frente do ::before */
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; /* Use rgba para definir a cor com opacidade */
+    opacity: 0.68;
+    z-index: -1; /* Certifique-se de que o ::before esteja atrás da .container */
+}
+
+.opacity {
+    position: relative; /* Certifique-se de que a .opacity esteja na frente da ::before */
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        background-image: url(../../../assets/matue8.jpeg);   
+    }
+}

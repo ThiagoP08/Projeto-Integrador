@@ -1,0 +1,7 @@
+{
+  "name": "EventRoller App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

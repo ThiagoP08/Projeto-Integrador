@@ -1,0 +1,19 @@
+<div *ngIf="evento.categoria_id == id" class="container">
+
+
+    <div>
+        <img src="assets/{{evento.img_src}}" alt="img">
+    </div>
+
+    <div class="data-container">
+        <h3> {{evento.titulo}}</h3>
+    
+        <h4> {{evento.data_evento}} </h4>
+    
+        <h5> {{evento.bairro}} </h5>
+    
+        <button routerLink="/evento-info/{{evento.id}}"> Comprar ingresso </button>
+    </div>
+
+
+</div>

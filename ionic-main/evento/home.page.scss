@@ -1,0 +1,106 @@
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+h2 {
+  padding: 5px;
+  text-align: center;
+}
+
+.about {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid gray;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.about1,
+.about2 {
+  text-align: center;
+}
+
+
+.desc {
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+
+.desc h5 {
+  text-align: center;
+}
+
+.desc p {
+  text-align: center;
+  padding: 5px;
+}
+
+.pol {
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+
+.pol h5 {
+  text-align: center;
+}
+
+.pol p {
+  text-align: center;
+  padding: 5px;
+}
+
+.apoio {
+  margin: 5px;
+}
+
+.apoio h6 {
+  text-align: center;
+}
+
+
+.ingressos {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.buy-button {
+  // display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.buy-button:hover {
+  background-color: #0056b3;
+}

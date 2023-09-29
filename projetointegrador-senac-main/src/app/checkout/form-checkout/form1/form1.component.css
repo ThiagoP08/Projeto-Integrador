@@ -1,0 +1,107 @@
+.container {
+    display: flex;
+    justify-content: center;
+    min-height: 40vh;
+    /* background-color: aqua; */
+    padding: 8rem;
+}
+
+form {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    width: 100%;
+}
+
+label {
+    font-size: 1.5vw;
+    line-height: 30px;
+}
+
+.label-container {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* background-color: aqua; */
+}
+
+.end-container {
+    /* background-color: aqua; */
+    display: flex;
+    gap: 50px;
+}
+
+.submit-container {
+    text-align: center;
+}
+
+input {
+    border-radius: 20px;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.cpf-input, .numero-input {
+    width: 20vw;
+}
+
+.label-container, .end-container {
+    margin-bottom: 1rem;
+}
+
+.submit {
+    background-color: #02CB3A;
+    color: white;
+    padding: 1rem;
+    font-size: 2vw;
+    width: 15vw;
+    border: none;
+    border-radius: 22px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        padding: 1rem;
+    }
+
+    label {
+        font-size: 3.5vw;
+    }
+
+    
+    .cpf-input, .numero-input {
+         /* background-color: red;  */
+         width: 50vw;
+        padding: 0.5rem;
+    }
+    
+    input {
+        /* background-color: aqua; */
+        padding: 0.5rem;
+        width: 50vw;
+        /* width: 20vw; */
+    }
+
+    .end-container {
+        /* background-color: azure; */
+        display: block;
+    }
+
+
+    input::placeholder {
+        /* color: aquamarine; */
+        font-size: 3vw;
+    }
+
+    .submit {
+        /* height: 10vw; */
+        width: 50vw;
+        font-size: 4.3vw;
+        padding: 0.5rem;
+    }
+
+}

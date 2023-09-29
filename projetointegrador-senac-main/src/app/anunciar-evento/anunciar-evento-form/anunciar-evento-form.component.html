@@ -1,0 +1,84 @@
+<div class="container">
+
+    <!-- 
+
+        create table evento (
+    id int primary key auto_increment,
+    titulo varchar(255) not null,
+    img_src varchar(255) not null,
+    data_evento date not null,
+    hora time not null,
+    bairro varchar(100) not null,
+    estado varchar(100) not null,
+    rua varchar(100) not null,
+    descricao varchar(255) not null,
+    politica varchar(255) not null,
+    min_lotacao int not null,
+    max_lotacao int not null,
+    status boolean not null,
+    min_idade int not null,
+    categoria_id int not null,
+    foreign key (categoria_id) references categorias(id)
+);
+
+
+     -->
+
+
+     <form (ngSubmit)="onSubmit()">
+
+        <label for="img_src">Carregar Imagem:</label>
+        <input type="file" id="img_src" name="img_src" (change)="onFileSelected($event)" accept="image/*"       required><br><br>
+
+    
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" [(ngModel)]="evento.titulo" required><br><br>
+    
+        <label for="data_evento">Data do Evento:</label>
+        <input type="date" id="data_evento" name="data_evento" [(ngModel)]="evento.data_evento" required><br><br> 
+    
+        <label for="hora">Hora do Evento:</label>
+        <input type="time" id="hora" name="hora" [(ngModel)]="evento.hora" required><br><br>
+    
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" name="bairro" [(ngModel)]="evento.bairro" required><br><br>
+    
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" name="estado" [(ngModel)]="evento.estado" required><br><br>
+    
+        <label for="rua">Rua:</label>
+        <input type="text" id="rua" name="rua" [(ngModel)]="evento.rua" required><br><br>
+    
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" rows="4" [(ngModel)]="evento.descricao" required></textarea><br><br>
+    
+        <label for="politica">Política:</label>
+        <textarea id="politica" name="politica" rows="4" [(ngModel)]="evento.politica" required></textarea><br><br>
+    
+        <label for="min_lotacao">Lotação Mínima:</label>
+        <input type="number" id="min_lotacao" name="min_lotacao" [(ngModel)]="evento.min_lotacao" required><br><br>
+    
+        <label for="max_lotacao">Lotação Máxima:</label>
+        <input type="number" id="max_lotacao" name="max_lotacao" [(ngModel)]="evento.max_lotacao" required><br><br>
+    
+        <label for="status">Status:</label>
+        <input type="radio" id="status_ativo" name="status" value="1" [(ngModel)]="evento.status" checked>
+        <label for="status_ativo">Ativo</label>
+        <input type="radio" id="status_inativo" name="status" value="0" [(ngModel)]="evento.status">
+        <label for="status_inativo">Inativo</label><br><br>
+    
+        <label for="min_idade">Idade Mínima:</label>
+        <input type="number" id="min_idade" name="min_idade" [(ngModel)]="evento.min_idade" required><br><br>
+    
+        <label for="categoria_id">Categoria:</label>
+        <select id="categoria_id" name="categoria_id" [(ngModel)]="evento.categoria_id" required>
+            <option value="1">Categoria 1</option>
+            <option value="2">Categoria 2</option>
+        </select><br><br> 
+    
+        <input type="submit" value="Cadastrar Evento">
+    
+    </form>
+    
+
+</div>

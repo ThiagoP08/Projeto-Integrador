@@ -1,0 +1,27 @@
+* {
+    color: white;
+    font-size: 2.2vw;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 15vh;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+@media screen and (max-width: 400px) {
+
+    header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    * {
+        font-size: 4vw;
+    }
+
+}

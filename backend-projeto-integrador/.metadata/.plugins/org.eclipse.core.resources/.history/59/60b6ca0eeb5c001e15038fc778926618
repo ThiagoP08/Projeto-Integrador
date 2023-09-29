@@ -1,0 +1,73 @@
+package resource;
+
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
+public class PagamentoPixResource {
+
+    public static void main(String[] args) {
+        criarPagamentoPix();
+    }
+
+    public static void criarPagamentoPix() {
+        try {
+            // URL da API do Mercado Pago para criar pagamentos Pix
+            String apiUrl = "https://api.mercadopago.com/v1/checkout/preferences";
+
+            // Configurar os dados do pagamento como uma string JSON
+            String pagamentoJson = "{"
+                    + "\"transaction_amount\": 100,"
+                    + "\"description\": \"Título do produto\","
+                    + "\"payment_method_id\": \"pix\","
+                    + "\"date_of_expiration\": \"2023-01-10T10:10:10Z\","
+                    + "\"payer\": {"
+                    + "\"email\": \"PAYER_EMAIL\","
+                    + "\"first_name\": \"Test\","
+                    + "\"identification\": {"
+                    + "\"type\": \"CPF\","
+                    + "\"number\": \"19119119100\""
+                    + "}"
+                    + "}"
+                    + "}";
+
+            // URL como objeto
+            URL url = new URL(apiUrl);
+
+            // Abrir conexão HTTP
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+
+            // Configurar cabeçalho de autorização com seu token de acesso
+            conn.setRequestProperty("Authorization", "Bearer ENV_ACCESS_TOKEN");
+
+            // Configurar cabeçalho de tipo de conteúdo
+            conn.setRequestProperty("Content-Type", "application/json");
+
+            // Permitir entrada e saída
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+
+            // Escrever os dados do pagamento na saída da solicitação
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = pagamentoJson.getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
+            }
+
+            // Obter a resposta da API
+            int responseCode = conn.getResponseCode();
+            if (responseCode == 200) {
+                // Processar a resposta aqui
+                // Você pode ler a resposta da API a partir da conexão conn.getInputStream()
+            } else {
+                // Lida com erros ou respostas não esperadas
+            }
+
+            // Fechar a conexão
+            conn.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

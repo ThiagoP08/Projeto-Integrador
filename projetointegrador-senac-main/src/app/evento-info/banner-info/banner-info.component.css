@@ -1,0 +1,72 @@
+.container {
+    height: 40vh;
+    background-image: url(../../../assets/matue2.jpeg);
+    background-repeat: no-repeat;
+    /* background-color: aqua; */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+.blur-background {
+    backdrop-filter: blur(5px); /* Aplicando o desfoque apenas aqui */
+    /* background-color: rgba(255, 255, 255, 0.8); Fundo com opacidade para destacar o desfoque */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    height: 40vh;
+    box-sizing: border-box;
+    background-image: url(../../../assets/matue2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 500px;
+    /* width: 100%; */
+    background-color: transparent; /* Deixe o fundo do card transparente para mostrar o desfoque por trás */
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+button {
+    background-color: red;
+    background-color: #00A3FF;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+a {
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+
+    .container {
+        background-image: none;
+        /* background-color: aqua; */
+        /* width: 100%; */
+
+    }
+
+    .card {
+        width: 100%;
+        /* display: none; */
+        /* background-color: aqua; */
+        /* background-image: none; */
+    }
+
+}

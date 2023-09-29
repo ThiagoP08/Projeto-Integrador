@@ -1,0 +1,66 @@
+.container {
+    /* background-color: aqua; */
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+h1 {
+    font-size: 3.4vw;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+}
+
+button {
+    font-size: 2.45vw;
+    border-radius: 30px;
+    width: 15vw;
+}
+
+.todos {
+    background-color: #656565;
+    color: white;
+    /* position: absolute;
+    left: 68%; */
+}
+
+.usados {
+    background-color: #F1F1F1;
+    /* position: relative; */
+    color: black;
+    
+   
+}
+
+@media screen and (max-width: 400px) {
+
+    .container {
+        display: block;
+        margin-top: 1rem;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 5vw;
+    }
+
+    .buttons-container {
+        margin-top: 1rem;
+        justify-content: center;
+        /* background-color: aqua; */
+        gap: 5px;
+    }
+
+    button {
+        width: 25vw;
+        font-size: 5vw;
+    }
+
+
+}

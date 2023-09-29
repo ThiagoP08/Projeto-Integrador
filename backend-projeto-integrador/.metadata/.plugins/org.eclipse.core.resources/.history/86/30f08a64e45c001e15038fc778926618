@@ -1,0 +1,21 @@
+
+MercadoPagoConfig.setAccessToken("ENV_ACCESS_TOKEN");
+
+PaymentClient client = new PaymentClient();
+
+PaymentCreateRequest paymentCreateRequest =
+   PaymentCreateRequest.builder()
+       .transactionAmount(new BigDecimal("100"))
+       .description("Título do produto")
+       .paymentMethodId("pix")
+       .dateOfExpiration(OffsetDateTime.of(2023, 1, 10, 10, 10, 10, 0, ZoneOffset.UTC))
+       .payer(
+           PaymentPayerRequest.builder()
+               .email("PAYER_EMAIL")
+               .firstName("Test")
+               .identification(
+                   IdentificationRequest.builder().type("CPF").number("19119119100").build())
+               .build())
+       .build();
+
+client.create(paymentCreateRequest);

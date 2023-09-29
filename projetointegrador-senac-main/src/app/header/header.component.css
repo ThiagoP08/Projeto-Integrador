@@ -1,0 +1,121 @@
+/* Para texto branco */
+.white-text {
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+/* Para texto preto */
+.black-text {
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+nav {
+  height: 15vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+.item-header {
+  font-size: 20px;
+}
+
+.no-border {
+  border: none;
+}
+
+.left-container {
+  /* background-color: aqua; */
+  gap: 30px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+input {
+  height: 20px;
+  width: 300px;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  outline: none;
+}
+
+input::placeholder {
+  color: white;
+  text-align: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  height: 20px;
+}
+
+.right-container {
+  min-height: 20px;
+  box-sizing: border-box;
+  gap: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.cadastrar {
+  padding: 0.5rem;
+}
+
+.sanduiche-container {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .left-container {
+    flex-grow: 1;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .item-header {
+    display: none;
+  }
+
+  .logo {
+    margin: 0;
+    display: block;
+    font-size: 30px;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .sanduiche-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,69 @@
+package api;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import com.google.gson.Gson;
+
+import model.PagadorModel;
+import model.PagamentoPixModel;
+
+public class PagamentoPix {
+
+    public static void main(String[] args) {
+        // Criando um objeto PagamentoPixModel com os dados do pagamento Pix
+        PagamentoPixModel pagamentoPix = new PagamentoPixModel();
+        pagamentoPix.setValorTransacao(100);
+        pagamentoPix.setDescricao("Pagamento Pix de Teste");
+        pagamentoPix.setMetodoPagamentoId("pix");
+        
+        // Configurando os dados do pagador (você pode adicionar mais campos)
+        pagamentoPix.setPagador(new PagadorModel());
+        pagamentoPix.getPagador().setEmail("SEU_EMAIL");
+
+        try {
+            // URL da API do Mercado Pago para criar um pagamento
+            String url = "https://api.mercadopago.com/v1/payments";
+
+            URL apiUrl = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Authorization", "Bearer SEU_TOKEN_DE_ACESSO");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
+
+            // Converter o objeto PagamentoPixModel em JSON
+            Gson gson = new Gson();
+            String jsonInputString = gson.toJson(pagamentoPix);
+
+            try (DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream())) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                outputStream.write(input, 0, input.length);
+            }
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode == 201) {
+                // Pagamento Pix criado com sucesso
+                // Você pode ler a resposta da API para obter mais detalhes
+                BufferedReader responseReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder response = new StringBuilder();
+                String responseLine;
+                while ((responseLine = responseReader.readLine()) != null) {
+                    response.append(responseLine);
+                }
+                responseReader.close();
+                System.out.println("Resposta da API do Mercado Pago: " + response.toString());
+            } else {
+                // Trate o erro de acordo com o código de resposta
+                System.out.println("Erro na criação do pagamento Pix. Código de resposta: " + responseCode);
+            }
+
+            connection.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

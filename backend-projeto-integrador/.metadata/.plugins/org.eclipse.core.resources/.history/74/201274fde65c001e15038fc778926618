@@ -1,0 +1,50 @@
+import javax.ws.rs.*;
+
+import com.mercadopago.MercadoPago;
+import com.mercadopago.resources.Payment;
+
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
+@Path("/pagamento-pix")
+public class PagamentoPixResource {
+
+    // Método para inicializar o SDK do Mercado Pago com seu access token
+    static {
+        MercadoPago.SDK.setAccessToken("SEU_ACCESS_TOKEN_AQUI");
+    }
+
+    @POST
+    @Path("/criar-pagamento")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response criarPagamento(String dadosJson) {
+        try {
+            // Processar os dados de criação de pagamento aqui
+            // Neste exemplo, você pode usar a biblioteca do Mercado Pago para criar um pagamento
+            Payment payment = new Payment()
+                .setTransactionAmount(100F)
+                .setDescription("Título do produto")
+                .setPaymentMethodId("pix")
+                .setPayer(new Payer()
+                    .setEmail("PAYER_EMAIL")
+                    .setFirstName("Test")
+                    .setIdentification(new Identification()
+                        .setType("CPF")
+                        .setNumber("19119119100")));
+
+            payment.save();
+
+            // Aqui, você pode retornar os detalhes do pagamento como resposta
+            return Response.ok(payment.toJson()).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Tratar erros e retornar uma resposta apropriada em caso de falha
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Erro ao criar pagamento").build();
+        }
+    }
+}

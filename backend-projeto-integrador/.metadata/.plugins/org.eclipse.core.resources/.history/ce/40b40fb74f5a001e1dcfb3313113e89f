@@ -1,0 +1,28 @@
+package service;
+
+import java.util.List;
+
+import dao.IngressoDAO;
+import model.Ingresso;
+
+public class IngressoService {
+	
+	IngressoDAO dao = new IngressoDAO();
+	
+	public List<Ingresso> listarEventos() {
+		return dao.listar();
+	}
+	
+	public Ingresso buscarEventoPorId(Integer id) {
+		return dao.consultarPorId(id);
+	}
+	
+	public boolean excluirEvento(Integer id) {
+		return dao.excluir(id);
+	}
+	
+	public boolean incluirEvento(Ingresso evento) {
+		return dao.incluir(evento);
+	}
+
+}

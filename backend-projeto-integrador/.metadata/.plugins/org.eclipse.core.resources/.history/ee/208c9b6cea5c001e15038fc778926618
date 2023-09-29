@@ -1,0 +1,73 @@
+package resource;
+
+public class PagamentoPixResource {
+	
+	import org.json.JSONObject;
+	import spark.Request;
+	import spark.Response;
+	import spark.Route;
+	import static spark.Spark.*;
+
+	public class PagamentoPixResource {
+
+	    public static void main(String[] args) {
+	        // Configurar porta do servidor Spark
+	        port(8080);
+
+	        // Definir um endpoint para criar pagamento Pix
+	        post("/criar-pagamento-pix", new Route() {
+	            @Override
+	            public Object handle(Request request, Response response) throws Exception {
+	                // Configurar os dados do pagamento
+	                JSONObject paymentData = new JSONObject();
+	                paymentData.put("transaction_amount", 100);
+	                paymentData.put("description", "Título do produto");
+	                paymentData.put("payment_method_id", "pix");
+	                paymentData.put("date_of_expiration", "2023-01-10T10:10:10Z");
+
+	                JSONObject payer = new JSONObject();
+	                payer.put("email", "PAYER_EMAIL");
+	                payer.put("first_name", "Test");
+
+	                JSONObject identification = new JSONObject();
+	                identification.put("type", "CPF");
+	                identification.put("number", "19119119100");
+
+	                payer.put("identification", identification);
+	                paymentData.put("payer", payer);
+
+	                // Fazer a solicitação para criar o pagamento Pix (aqui você usaria uma biblioteca HTTP)
+	                String respostaAPI = fazerSolicitacaoParaAPI(paymentData);
+
+	                // Retornar a resposta da API como JSON
+	                response.type("application/json");
+	                return respostaAPI;
+	            }
+	        });
+	    }
+
+	    // Simule uma solicitação HTTP para a API do Mercado Pago (você deve implementar isso)
+	    private static String fazerSolicitacaoParaAPI(JSONObject paymentData) {
+	        // Aqui você deve fazer uma solicitação HTTP para a API do Mercado Pago
+	        // e retornar a resposta da API como uma string JSON
+	        // Certifique-se de configurar o cabeçalho de autorização com seu token de acesso
+
+	        // Exemplo de código para fazer a solicitação:
+	        // HttpClient httpClient = HttpClient.newHttpClient();
+	        // HttpRequest request = HttpRequest.newBuilder()
+	        //         .uri(new URI("https://api.mercadopago.com/v1/checkout/preferences"))
+	        //         .header("Authorization", "Bearer ENV_ACCESS_TOKEN")
+	        //         .POST(HttpRequest.BodyPublishers.ofString(paymentData.toString()))
+	        //         .build();
+	        // HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+	        // return response.body();
+
+	        // Por enquanto, apenas retornamos uma resposta de exemplo
+	        JSONObject exemploResposta = new JSONObject();
+	        exemploResposta.put("mensagem", "Pagamento Pix criado com sucesso");
+	        return exemploResposta.toString();
+	    }
+	}
+
+
+}

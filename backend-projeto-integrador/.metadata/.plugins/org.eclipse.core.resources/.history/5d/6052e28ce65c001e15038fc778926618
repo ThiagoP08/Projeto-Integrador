@@ -1,0 +1,30 @@
+package resource;
+
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
+@Path("/pagamento-pix")
+public class PagamentoPixResource {
+
+    @GET
+    @Path("/mensagem")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getMensagem() {
+        return "Esta é uma mensagem de exemplo do GET de Pagamento Pix.";
+    }
+
+    @POST
+    @Path("/criar-pagamento")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response criarPagamento(String dadosJson) {
+        // Processar os dados de criação de pagamento aqui
+        // Neste exemplo, apenas retornaremos os dados recebidos como resposta
+        return Response.ok("Dados de criação de pagamento recebidos: " + dadosJson).build();
+    }
+}

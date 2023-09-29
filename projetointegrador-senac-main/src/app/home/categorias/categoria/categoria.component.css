@@ -1,0 +1,18 @@
+.container {
+    /* background-color: aqua; */
+    width: 298px;
+    margin-bottom: 2rem;
+}
+
+
+img {
+    border-radius: 10px;
+   width: 298px;
+}
+
+
+p {
+    text-align: center;
+    font-size: 20px;
+    color: black;
+}

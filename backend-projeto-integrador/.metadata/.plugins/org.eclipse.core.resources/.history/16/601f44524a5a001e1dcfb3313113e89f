@@ -1,0 +1,28 @@
+package api;
+
+import model.PagamentoPixModel;
+import service.PagamentoPixService;
+
+public class PagamentoPix {
+
+    public static void main(String[] args) {
+        // Criar um objeto PagamentoPixModel com os detalhes do pagamento
+        PagamentoPixModel pagamentoPix = new PagamentoPixModel();
+        pagamentoPix.setValorTransacao(100);
+        pagamentoPix.setDescricao("Pagamento Pix de Teste");
+        pagamentoPix.setMetodoPagamentoId("pix");
+        pagamentoPix.getPagador().setEmail("SEU_EMAIL");
+
+        // Chave de Acesso do Mercado Pago (substitua pela sua chave)
+        String accessToken = "SEU_TOKEN_DE_ACESSO";
+
+        // Criar uma instância do serviço PagamentoPixService
+        PagamentoPixService pagamentoPixService = new PagamentoPixService();
+
+        // Chamar o serviço para criar o pagamento Pix
+        String respostaAPI = pagamentoPixService.criarPagamentoPix(pagamentoPix, accessToken);
+
+        // Exibir a resposta da API
+        System.out.println("Resposta da API do Mercado Pago: " + respostaAPI);
+    }
+}

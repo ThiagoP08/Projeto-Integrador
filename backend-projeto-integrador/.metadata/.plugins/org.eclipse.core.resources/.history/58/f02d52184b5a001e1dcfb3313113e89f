@@ -1,0 +1,69 @@
+package api.resource;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+@Path("/pagamento")
+public class PagamentoPixResource {
+
+    @POST
+    @Path("/criar")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response criarPagamento(PagamentoPix pagamentoPix) {
+        try {
+            // Construir o JSON com os detalhes do pagamentoPix
+            String jsonInputString = "{\"valor_transacao\":" + pagamentoPix.getValorTransacao() +
+                    ",\"descricao\":\"" + pagamentoPix.getDescricao() +
+                    "\",\"metodo_pagamento_id\":\"" + pagamentoPix.getMetodoPagamentoId() +
+                    "\",\"pagador\":{\"email\":\"" + pagamentoPix.getPagadorEmail() + "\"}}";
+
+            // URL da API do Mercado Pago para criar um pagamentoPix
+            String url = "https://api.mercadopago.com/v1/payments";
+
+            URL apiUrl = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Authorization", "Bearer " + pagamentoPix.getTokenAcesso());
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
+
+            // Enviar os dados JSON no corpo da requisição
+            try (DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream())) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                outputStream.write(input, 0, input.length);
+            }
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode == 201) {
+                // PagamentoPix criado com sucesso
+                // Você pode ler a resposta da API para obter mais detalhes
+                BufferedReader responseReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder response = new StringBuilder();
+                String responseLine;
+                while ((responseLine = responseReader.readLine()) != null) {
+                    response.append(responseLine);
+                }
+                responseReader.close();
+                String respostaAPI = response.toString();
+                return Response.status(201).entity(respostaAPI).build();
+            } else {
+                // Tratar o erro de acordo com o código de resposta
+                return Response.status(responseCode).entity("Erro na criação do pagamentoPix. Código de resposta: " + responseCode).build();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(500).entity("Erro interno do servidor").build();
+        }
+    }
+}

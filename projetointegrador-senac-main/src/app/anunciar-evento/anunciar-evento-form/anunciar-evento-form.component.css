@@ -1,0 +1,18 @@
+.container {
+    margin-top: 2rem;
+}
+
+label, input {
+    display: block;
+}
+
+label {
+    font-size: 1.7vw;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 23vw;
+    border-radius: 50px;
+    padding: 0.5rem;
+}

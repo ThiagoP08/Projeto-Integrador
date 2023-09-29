@@ -1,0 +1,15 @@
+.container {
+    margin: 2rem;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 850px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    /* background-color: red; */
+}
